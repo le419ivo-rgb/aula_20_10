@@ -11,3 +11,17 @@ def principal(request):
     template = loader.get_template('principal.html')
     return HttpResponse(template.render())
 
+def livros(request):
+    context = {
+        'livros': [
+            {
+                'nome': "A Metamorfose",
+                'autor': "Franz Kafta",
+                'ano': 1915
+            }
+        ]
+    }
+
+    template = loader.get_template('livros.html')
+    return HttpResponse(template.render(context, request))
+
